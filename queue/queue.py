@@ -64,14 +64,14 @@ class LinkedList:
         # return current head value and set head and tail to none
             self.head = None
             self.tail = None
-            return head
+            return head.get_value()
         # if list has more than one item
         else:
             head = self.head
         # return current head value
         # set self.head to current head's self.next
             self.head = self.head.get_next()
-            return head
+            return head.get_value()
 
     def add_to_tail(self, value):
         # basically the same as add_to_head but backwards
@@ -91,6 +91,11 @@ class LinkedList:
             tail = self.tail
             self.tail = None
             self.head = None
-            return tail
+            return tail.get_value()
         else:
             tail = self.tail
+            current = self.head
+            while current.next_node is not None:
+                current = current.next_node
+            current.next_node = None
+            return tail.get_value()
