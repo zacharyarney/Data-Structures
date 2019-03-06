@@ -16,6 +16,7 @@ class BinarySearchTree:
                 self.right.insert(value)
             else:
                 self.right = new_node
+        # ITERATIVE
         # while self is not None:
         #     if value < self.value:
         #         if self.left is None:
@@ -32,17 +33,18 @@ class BinarySearchTree:
         if target < self.value:
             if self.left:
                 print(f'LEFT {self.left.value}')
-                self.left.contains(target)
+                return self.left.contains(target)
             else:
                 return False
         if target > self.value:
             if self.right:
                 print(f'RIGHT {self.right.value}')
-                self.right.contains(target)
+                return self.right.contains(target)
             else:
                 return False
         if target == self.value:
             return True
+        # ITERATIVE
         # while self is not None:
         #     if target < self.value:
         #         self = self.left
@@ -53,4 +55,9 @@ class BinarySearchTree:
         # return False
 
     def get_max(self):
-        pass
+        max = self.value
+        while self.right:
+            if self.right.value > max:
+                max = self.right.value
+            self = self.right
+        return max
