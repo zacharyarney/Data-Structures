@@ -12,7 +12,7 @@ class Heap:
         pass
 
     def get_size(self):
-        pass
+        return len(self.storag)
 
     def _bubble_up(self, index):
         store = self.storage
@@ -20,7 +20,7 @@ class Heap:
         if parent:
             if store[index] > store[parent]:
                 store[index], store[parent] = store[parent], store[index]
-                return _bubble_up(parent)
+                return self._bubble_up(parent)
             if store[index] < store[parent]:
                 return
 
@@ -32,12 +32,12 @@ class Heap:
             if store[rchild] > store[lchild]:
                 if store[rchild] > store[index]:
                     store[index], store[rchild] = store[rchild], store[index]
-                    return _sift_down(rchild)
+                    return self._sift_down(rchild)
                 else:
                     return
             if store[lchild] > store[rchild]:
                 if store[lchild] > store[index]:
                     store[index], store[lchild] = store[lchild], store[index]
-                    return _sift_down(lchild)
+                    return self._sift_down(lchild)
                 else:
                     return
