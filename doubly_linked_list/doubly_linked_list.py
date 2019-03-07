@@ -89,11 +89,21 @@ class DoublyLinkedList:
             self.tail.next.delete()
         return tail
 
-  def move_to_front(self, node):
-    pass
+    def move_to_front(self, node):
+        val = node.value
+        if node is self.tail:
+            self.remove_from_tail()
+        else:
+            node.delete()
+        self.add_to_head(val)
 
-  def move_to_end(self, node):
-    pass
+    def move_to_end(self, node):
+        val = node.value
+        if node is self.head:
+            self.remove_from_head()
+        else:
+            node.delete()
+        self.add_to_tail(val)
 
   def delete(self, node):
     pass
