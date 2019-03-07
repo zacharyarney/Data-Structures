@@ -55,9 +55,6 @@ class BinarySearchTree:
         # return False
 
     def get_max(self):
-        max = self.value
         while self.right:
-            if self.right.value > max:
-                max = self.right.value
             self = self.right
-        return max
+        return self.value
